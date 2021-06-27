@@ -1,0 +1,85 @@
+inherited FrmCadDetailBanco: TFrmCadDetailBanco
+  Height = 243
+  Caption = 'Manutenção cadastro de banco'
+  ClientHeight = 243
+  inherited Panel1: TPanel
+    Height = 239
+    ClientHeight = 239
+    inherited BtnRefresh: TBitBtn
+      Caption = 'Atualizar'
+    end
+    inherited BtnClose: TBitBtn
+      Top = 208
+      Caption = 'Sair'
+    end
+    inherited BtnOk: TBitBtn
+      Top = 178
+      Caption = 'Gravar'
+    end
+  end
+  object Label1: TLabel[1]
+    Left = 31
+    Height = 16
+    Top = 30
+    Width = 96
+    Caption = 'Nome do banco'
+    ParentColor = False
+  end
+  object EdtNome: TEdit[2]
+    Left = 31
+    Height = 22
+    Top = 48
+    Width = 369
+    TabOrder = 1
+  end
+  object Label2: TLabel[3]
+    Left = 409
+    Height = 16
+    Top = 32
+    Width = 103
+    Caption = 'Código do banco'
+    ParentColor = False
+  end
+  object EdtCodigo: TEdit[4]
+    Left = 409
+    Height = 22
+    Top = 51
+    Width = 103
+    OnKeyPress = EdtCodigoKeyPress
+    TabOrder = 2
+  end
+  object Label3: TLabel[5]
+    Left = 34
+    Height = 16
+    Top = 80
+    Width = 80
+    Caption = 'Observações'
+    ParentColor = False
+  end
+  object MemObs: TMemo[6]
+    Left = 34
+    Height = 88
+    Top = 104
+    Width = 478
+    Lines.Strings = (    )
+    TabOrder = 3
+  end
+  object LblDataCadastro: TLabel[7]
+    Left = 38
+    Height = 16
+    Top = 205
+    Width = 3
+    Caption = '|'
+    ParentColor = False
+  end
+  object LblDataAlteracao: TLabel[8]
+    Left = 384
+    Height = 16
+    Top = 205
+    Width = 3
+    Caption = '|'
+    ParentColor = False
+  end
+  inherited ImageList1: TImageList[9]
+  end
+end

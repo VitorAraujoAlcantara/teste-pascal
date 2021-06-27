@@ -1,0 +1,106 @@
+inherited FrmCadDetailBase: TFrmCadDetailBase
+  Left = 470
+  Height = 231
+  Top = 189
+  Width = 718
+  Caption = ''
+  ClientHeight = 231
+  ClientWidth = 718
+  OnShow = FormShow
+  object Panel1: TPanel[0]
+    Left = 546
+    Height = 227
+    Top = 2
+    Width = 170
+    Align = alRight
+    ClientHeight = 227
+    ClientWidth = 170
+    TabOrder = 0
+    object BtnRefresh: TBitBtn
+      Left = 1
+      Height = 30
+      Top = 51
+      Width = 168
+      Align = alTop
+      Caption = '&Restaurar'
+      OnClick = BtnRefreshClick
+      TabOrder = 0
+    end
+    object PnlNavigator: TPanel
+      Left = 1
+      Height = 50
+      Top = 1
+      Width = 168
+      Align = alTop
+      ClientHeight = 50
+      ClientWidth = 168
+      TabOrder = 1
+      object BitBtn4: TBitBtn
+        Left = 1
+        Height = 48
+        Top = 1
+        Width = 40
+        Align = alLeft
+        Caption = '<<'
+        OnClick = BitBtn4Click
+        TabOrder = 0
+      end
+      object BitBtn5: TBitBtn
+        Left = 41
+        Height = 48
+        Top = 1
+        Width = 40
+        Align = alLeft
+        Caption = '<'
+        OnClick = BitBtn5Click
+        TabOrder = 1
+      end
+      object BitBtn6: TBitBtn
+        Left = 87
+        Height = 48
+        Top = 1
+        Width = 40
+        Align = alRight
+        Caption = '>'
+        OnClick = BitBtn6Click
+        TabOrder = 2
+      end
+      object BitBtn7: TBitBtn
+        Left = 127
+        Height = 48
+        Top = 1
+        Width = 40
+        Align = alRight
+        Caption = '>>'
+        OnClick = BitBtn7Click
+        TabOrder = 3
+      end
+    end
+    object BtnClose: TBitBtn
+      Left = 1
+      Height = 30
+      Top = 196
+      Width = 168
+      Align = alBottom
+      Caption = '&Sair'
+      OnClick = BtnCloseClick
+      TabOrder = 2
+    end
+    object BtnOk: TBitBtn
+      Left = 1
+      Height = 30
+      Top = 166
+      Width = 168
+      Align = alBottom
+      Caption = '&Ok'
+      OnClick = BtnOkClick
+      TabOrder = 3
+    end
+  end
+  object ImageList1: TImageList[1]
+    Height = 32
+    Width = 32
+    Left = 206
+    Top = 100
+  end
+end

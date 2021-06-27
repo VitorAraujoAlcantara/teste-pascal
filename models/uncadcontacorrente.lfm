@@ -1,0 +1,8 @@
+inherited FrmCadContaCorrente: TFrmCadContaCorrente
+  Caption = 'Cadastro de conta corrente'
+  inherited Panel1: TPanel
+    BevelColor = clScrollBar
+    ClientHeight = 590
+    ClientWidth = 166
+  end
+end

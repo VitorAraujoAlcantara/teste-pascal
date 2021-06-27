@@ -1,0 +1,10 @@
+inherited FrmCadBanco: TFrmCadBanco
+  Left = 511
+  Top = 225
+  Caption = 'Cadastro de Banco'
+  OnCreate = FormCreate
+  inherited Panel1: TPanel
+    BevelColor = clScrollBar
+    OnClick = Panel1Click
+  end
+end

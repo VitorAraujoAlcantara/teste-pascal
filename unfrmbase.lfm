@@ -1,0 +1,11 @@
+object FrmBase: TFrmBase
+  Left = 659
+  Height = 240
+  Top = 258
+  Width = 320
+  BorderWidth = 2
+  Caption = 'FrmBase'
+  Color = 15854306
+  Font.Color = clBlack
+  LCLVersion = '2.0.12.0'
+end

@@ -1,0 +1,19 @@
+object DmDados: TDmDados
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 296
+  VerticalOffset = 130
+  Width = 150
+  object PQConnection1: TPQConnection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'teste_delphi'
+    KeepConnection = False
+    Password = 'vi492412VI'
+    UserName = 'postgres'
+    HostName = 'localhost'
+    Left = 48
+    Top = 24
+  end
+end

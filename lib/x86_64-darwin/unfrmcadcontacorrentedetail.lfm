@@ -118,10 +118,8 @@ inherited FrmCadContaCorrenteDetail: TFrmCadContaCorrenteDetail
     Height = 20
     Top = 80
     Width = 200
-    ItemHeight = 26
-    Style = csDropDownList
+    ItemHeight = 19
     TabOrder = 5
-    Text = 'CmbBanco'
   end
   object EdtValorAbertura: TTIFloatSpinEdit[14]
     Left = 208

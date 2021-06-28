@@ -71,19 +71,7 @@ inherited FrmCadContaCorrenteDetail: TFrmCadContaCorrenteDetail
     Caption = 'Valor abertura'
     ParentColor = False
   end
-  object EdtValorAbertura: TMaskEdit[8]
-    Left = 208
-    Height = 22
-    Top = 80
-    Width = 88
-    CharCase = ecNormal
-    MaxLength = 9
-    TabOrder = 4
-    EditMask = '######.00;1;_'
-    Text = '      .  '
-    SpaceChar = '_'
-  end
-  object Label5: TLabel[9]
+  object Label5: TLabel[8]
     Left = 24
     Height = 16
     Top = 112
@@ -91,7 +79,7 @@ inherited FrmCadContaCorrenteDetail: TFrmCadContaCorrenteDetail
     Caption = 'Observação'
     ParentColor = False
   end
-  object MemObservacao: TMemo[10]
+  object MemObservacao: TMemo[9]
     Left = 24
     Height = 56
     Top = 128
@@ -99,9 +87,9 @@ inherited FrmCadContaCorrenteDetail: TFrmCadContaCorrenteDetail
     Lines.Strings = (
       'MemObservacao'
     )
-    TabOrder = 5
+    TabOrder = 4
   end
-  object LblDataCadastro: TLabel[11]
+  object LblDataCadastro: TLabel[10]
     Left = 38
     Height = 16
     Top = 205
@@ -109,7 +97,7 @@ inherited FrmCadContaCorrenteDetail: TFrmCadContaCorrenteDetail
     Caption = '|'
     ParentColor = False
   end
-  object LblDataAlteracao: TLabel[12]
+  object LblDataAlteracao: TLabel[11]
     Left = 384
     Height = 16
     Top = 205
@@ -117,7 +105,7 @@ inherited FrmCadContaCorrenteDetail: TFrmCadContaCorrenteDetail
     Caption = '|'
     ParentColor = False
   end
-  object Label6: TLabel[13]
+  object Label6: TLabel[12]
     Left = 304
     Height = 16
     Top = 64
@@ -125,15 +113,22 @@ inherited FrmCadContaCorrenteDetail: TFrmCadContaCorrenteDetail
     Caption = 'Banco'
     ParentColor = False
   end
-  object CmbBanco: TComboBox[14]
+  object CmbBanco: TComboBox[13]
     Left = 304
     Height = 20
     Top = 80
     Width = 200
-    ItemHeight = 26
-    Style = csDropDownList
+    ItemHeight = 19
+    TabOrder = 5
+  end
+  object EdtValorAbertura: TTIFloatSpinEdit[14]
+    Left = 208
+    Height = 22
+    Top = 78
+    Width = 96
+    Increment = 0.01
+    MaxValue = 999999
     TabOrder = 6
-    Text = 'CmbBanco'
   end
   inherited ImageList1: TImageList[15]
   end

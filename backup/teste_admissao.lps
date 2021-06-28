@@ -3,13 +3,13 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="28">
+    <Units Count="33">
       <Unit0>
         <Filename Value="teste_admissao.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="55" Y="22"/>
-        <UsageCount Value="157"/>
+        <UsageCount Value="162"/>
       </Unit0>
       <Unit1>
         <Filename Value="unfrmprincipal.pas"/>
@@ -21,7 +21,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="34"/>
         <CursorPos X="35" Y="61"/>
-        <UsageCount Value="157"/>
+        <UsageCount Value="162"/>
       </Unit1>
       <Unit2>
         <Filename Value="unfrmbase.pas"/>
@@ -32,7 +32,7 @@
         <UnitName Value="unFrmBase"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="17" Y="12"/>
-        <UsageCount Value="157"/>
+        <UsageCount Value="162"/>
       </Unit2>
       <Unit3>
         <Filename Value="models/unmodelbase.pas"/>
@@ -40,7 +40,7 @@
         <UnitName Value="unModelBase"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="5" Y="14"/>
-        <UsageCount Value="157"/>
+        <UsageCount Value="162"/>
       </Unit3>
       <Unit4>
         <Filename Value="models/unbanco.pas"/>
@@ -48,16 +48,15 @@
         <UnitName Value="unBanco"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="40"/>
-        <UsageCount Value="157"/>
+        <UsageCount Value="162"/>
       </Unit4>
       <Unit5>
         <Filename Value="controllers/uncontrollerbase.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unControllerBase"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="165"/>
-        <CursorPos Y="183"/>
-        <UsageCount Value="157"/>
+        <TopLine Value="272"/>
+        <CursorPos X="38" Y="282"/>
+        <UsageCount Value="162"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -67,17 +66,23 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="unDmDados"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="10" Y="24"/>
-        <UsageCount Value="157"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="12"/>
+        <CursorPos X="14" Y="37"/>
+        <UsageCount Value="162"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="controllers/unbancocontroller.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unBancoController"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="19"/>
         <CursorPos X="3" Y="157"/>
-        <UsageCount Value="153"/>
+        <UsageCount Value="158"/>
+        <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="views/unfrmcadbase.pas"/>
@@ -86,10 +91,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="unFrmCadBase"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="118"/>
         <CursorPos Y="133"/>
-        <UsageCount Value="152"/>
+        <UsageCount Value="157"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
@@ -102,7 +107,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="40"/>
         <CursorPos X="33" Y="71"/>
-        <UsageCount Value="152"/>
+        <UsageCount Value="157"/>
       </Unit9>
       <Unit10>
         <Filename Value="views/unfrmcaddetailbase.pas"/>
@@ -111,11 +116,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="unFrmCadDetailBase"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="117"/>
-        <CursorPos Y="132"/>
-        <UsageCount Value="145"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="142"/>
+        <CursorPos Y="153"/>
+        <UsageCount Value="150"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="views/unfrmcaddetailbanco.pas"/>
@@ -124,28 +130,32 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="unFrmCadDetailBanco"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="14"/>
-        <CursorPos X="15" Y="30"/>
-        <UsageCount Value="142"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="57"/>
+        <CursorPos X="38" Y="65"/>
+        <UsageCount Value="147"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unContaCorrenteController"/>
-        <TopLine Value="233"/>
-        <CursorPos X="3" Y="235"/>
-        <UsageCount Value="37"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="38"/>
+        <CursorPos X="17" Y="80"/>
+        <UsageCount Value="42"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
         <Filename Value="models/uncontacorrente.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unContaCorrente"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="6"/>
-        <CursorPos X="31" Y="33"/>
-        <UsageCount Value="37"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="55"/>
+        <CursorPos X="3" Y="57"/>
+        <UsageCount Value="42"/>
+        <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="models/uncadcontacorrente.pas"/>
@@ -154,10 +164,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UnCadContaCorrente"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="36"/>
-        <CursorPos Y="42"/>
-        <UsageCount Value="33"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="42"/>
+        <CursorPos X="51" Y="49"/>
+        <UsageCount Value="38"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
@@ -166,11 +178,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UnFrmCadContaCorrenteDetail"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="47"/>
-        <CursorPos X="42" Y="55"/>
-        <UsageCount Value="33"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="101"/>
+        <CursorPos X="21" Y="142"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit15>
@@ -184,31 +195,31 @@
       <Unit17>
         <Filename Value="/Applications/Lazarus/lcl/grids.pas"/>
         <UnitName Value="Grids"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1703"/>
-        <CursorPos X="48" Y="1709"/>
-        <UsageCount Value="1"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="8107"/>
+        <CursorPos Y="8122"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit17>
       <Unit18>
         <Filename Value="/Applications/Lazarus/lcl/controls.pp"/>
         <UnitName Value="Controls"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="3382"/>
         <CursorPos X="40" Y="3397"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit18>
       <Unit19>
         <Filename Value="/Applications/Lazarus/lcl/include/customform.inc"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="634"/>
-        <CursorPos Y="657"/>
+        <EditorIndex Value="15"/>
+        <TopLine Value="2159"/>
+        <CursorPos Y="2174"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit19>
       <Unit20>
         <Filename Value="/Applications/Lazarus/lcl/include/control.inc"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="11"/>
         <TopLine Value="2899"/>
         <CursorPos Y="2913"/>
         <UsageCount Value="10"/>
@@ -216,21 +227,23 @@
       </Unit20>
       <Unit21>
         <Filename Value="/Applications/Lazarus/lcl/include/buttoncontrol.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="7"/>
-        <CursorPos Y="22"/>
+        <EditorIndex Value="12"/>
+        <TopLine Value="41"/>
+        <CursorPos Y="56"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit21>
       <Unit22>
         <Filename Value="/Applications/Lazarus/lcl/include/buttons.inc"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="13"/>
         <TopLine Value="155"/>
         <CursorPos Y="170"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit22>
       <Unit23>
         <Filename Value="/Applications/Lazarus/lcl/include/bitbtn.inc"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="14"/>
         <TopLine Value="54"/>
         <CursorPos Y="68"/>
         <UsageCount Value="10"/>
@@ -267,127 +280,166 @@
         <CursorPos Y="302"/>
         <UsageCount Value="10"/>
       </Unit27>
+      <Unit28>
+        <Filename Value="/usr/local/share/fpcsrc/3.2.0/packages/fcl-db/src/sqldb/sqldb.pp"/>
+        <UnitName Value="SQLDB"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="79"/>
+        <CursorPos X="3" Y="94"/>
+        <UsageCount Value="10"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="/Applications/Lazarus/components/datetimectrls/datetimepicker.pas"/>
+        <UnitName Value="DateTimePicker"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="665"/>
+        <CursorPos X="19" Y="509"/>
+        <UsageCount Value="10"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="/Applications/Lazarus/lcl/stdctrls.pp"/>
+        <UnitName Value="StdCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="328"/>
+        <CursorPos X="14" Y="342"/>
+        <UsageCount Value="10"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="/Applications/Lazarus/lcl/include/customcombobox.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="922"/>
+        <CursorPos X="82" Y="931"/>
+        <UsageCount Value="10"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="models/unfrmcadcontacorrentedetail.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="101"/>
+        <CursorPos X="20" Y="121"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit32>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
-        <Caret Line="77" Column="21" TopLine="61"/>
+        <Caret Line="101" TopLine="85"/>
       </Position1>
       <Position2>
         <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
-        <Caret Line="79" TopLine="61"/>
+        <Caret Line="84" Column="3" TopLine="75"/>
       </Position2>
       <Position3>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="147" Column="35" TopLine="138"/>
+        <Caret Line="66" Column="27" TopLine="44"/>
       </Position3>
       <Position4>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="151" TopLine="138"/>
+        <Caret Line="326" TopLine="324"/>
       </Position4>
       <Position5>
-        <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="153" TopLine="138"/>
+        <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
+        <Caret Line="84" Column="44" TopLine="75"/>
       </Position5>
       <Position6>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="151" TopLine="138"/>
+        <Caret Line="323" Column="21" TopLine="320"/>
       </Position6>
       <Position7>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="153" TopLine="138"/>
+        <Caret Line="328" TopLine="320"/>
       </Position7>
       <Position8>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="155" TopLine="138"/>
+        <Caret Line="331" TopLine="320"/>
       </Position8>
       <Position9>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="156" TopLine="138"/>
+        <Caret Line="333" TopLine="320"/>
       </Position9>
       <Position10>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="157" TopLine="138"/>
+        <Caret Line="336" TopLine="320"/>
       </Position10>
       <Position11>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="161" TopLine="138"/>
+        <Caret Line="340" TopLine="320"/>
       </Position11>
       <Position12>
-        <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="153" TopLine="138"/>
+        <Filename Value="controllers/uncontrollerbase.pas"/>
+        <Caret Line="450" TopLine="436"/>
       </Position12>
       <Position13>
-        <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
-        <Caret Line="109" TopLine="92"/>
+        <Filename Value="controllers/uncontrollerbase.pas"/>
+        <Caret Line="451" TopLine="436"/>
       </Position13>
       <Position14>
-        <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="220" Column="34" TopLine="205"/>
+        <Filename Value="controllers/uncontrollerbase.pas"/>
+        <Caret Line="452" TopLine="436"/>
       </Position14>
       <Position15>
-        <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="75" Column="48" TopLine="62"/>
+        <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
+        <Caret Line="102" TopLine="78"/>
       </Position15>
       <Position16>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="52" Column="14" TopLine="37"/>
+        <Caret Line="219" Column="24" TopLine="197"/>
       </Position16>
       <Position17>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="218" Column="3" TopLine="216"/>
+        <Caret Line="69" Column="41" TopLine="55"/>
       </Position17>
       <Position18>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="78" Column="54" TopLine="54"/>
+        <Caret Line="381" Column="70" TopLine="357"/>
       </Position18>
       <Position19>
-        <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
-        <Caret Line="103" Column="73" TopLine="92"/>
+        <Filename Value="models/uncontacorrente.pas"/>
+        <Caret Line="36" Column="67" TopLine="12"/>
       </Position19>
       <Position20>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="78" Column="14" TopLine="65"/>
+        <Caret Line="353" Column="30" TopLine="339"/>
       </Position20>
       <Position21>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="51" Column="14" TopLine="36"/>
+        <Caret Line="59" Column="48" TopLine="56"/>
       </Position21>
       <Position22>
         <Filename Value="controllers/uncontacorrentecontroller.pas"/>
-        <Caret Line="235" Column="3" TopLine="233"/>
+        <Caret Line="274" Column="34" TopLine="261"/>
       </Position22>
       <Position23>
-        <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
-        <Caret Line="76" TopLine="61"/>
+        <Filename Value="controllers/uncontacorrentecontroller.pas"/>
+        <Caret Line="80" Column="17" TopLine="38"/>
       </Position23>
       <Position24>
         <Filename Value="controllers/uncontrollerbase.pas"/>
-        <Caret Line="625" TopLine="611"/>
+        <Caret Line="71" Column="19" TopLine="54"/>
       </Position24>
       <Position25>
-        <Filename Value="views/unfrmcaddetailbase.pas"/>
-        <Caret Line="132" TopLine="117"/>
+        <Filename Value="controllers/uncontrollerbase.pas"/>
+        <Caret Line="322" Column="51" TopLine="317"/>
       </Position25>
       <Position26>
         <Filename Value="controllers/uncontrollerbase.pas"/>
-        <Caret Line="150" TopLine="135"/>
+        <Caret Line="70" Column="21" TopLine="57"/>
       </Position26>
       <Position27>
-        <Filename Value="controllers/uncontrollerbase.pas"/>
-        <Caret Line="179" TopLine="165"/>
+        <Filename Value="undmdados.pas"/>
+        <Caret Line="24" Column="10"/>
       </Position27>
       <Position28>
-        <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
-        <Caret Line="59" Column="21" TopLine="46"/>
+        <Filename Value="undmdados.pas"/>
+        <Caret Line="25" Column="10"/>
       </Position28>
       <Position29>
-        <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
-        <Caret Line="61" Column="21" TopLine="48"/>
+        <Filename Value="undmdados.pas"/>
+        <Caret Line="26" Column="10"/>
       </Position29>
       <Position30>
-        <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
-        <Caret Line="60" Column="21" TopLine="47"/>
+        <Filename Value="undmdados.pas"/>
+        <Caret Line="5" Column="32"/>
       </Position30>
     </JumpHistory>
     <RunParams>
@@ -402,7 +454,7 @@
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="controllers/uncontacorrentecontroller.pas"/>
-        <Line Value="271"/>
+        <Line Value="281"/>
       </Item1>
     </BreakPoints>
   </Debugging>

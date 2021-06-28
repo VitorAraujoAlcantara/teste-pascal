@@ -68,16 +68,16 @@ inherited FrmCadDetailBanco: TFrmCadDetailBanco
     Left = 38
     Height = 16
     Top = 205
-    Width = 102
-    Caption = 'LblDataCadastro'
+    Width = 3
+    Caption = '|'
     ParentColor = False
   end
   object LblDataAlteracao: TLabel[8]
     Left = 384
     Height = 16
     Top = 205
-    Width = 104
-    Caption = 'LblDataAlteracao'
+    Width = 3
+    Caption = '|'
     ParentColor = False
   end
   inherited ImageList1: TImageList[9]

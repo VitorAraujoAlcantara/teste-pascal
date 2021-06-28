@@ -62,7 +62,7 @@ begin
   begin
     Result[0] := NomeConta;
     Result[1] := Numero;
-    Result[2] := '';
+    Result[2] := NomeBanco;
   end;
 
 end;

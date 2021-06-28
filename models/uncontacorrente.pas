@@ -14,12 +14,14 @@ type
   private
     FDataAbertura: TDateTime;
     FIdBanco: string;
+    FNomeBanco: string;
     FNomeConta: string;
     FNumero: string;
     FObservacao: string;
     FSaldoInicial: Extended;
     procedure SetDataAbertura(AValue: TDateTime);
     procedure SetIdBanco(AValue: string);
+    procedure SetNomeBanco(AValue: string);
     procedure SetNomeConta(AValue: string);
     procedure SetNumero(AValue: string);
     procedure SetObservacao(AValue: string);
@@ -31,6 +33,7 @@ type
     property DataAbertura: TDateTime read FDataAbertura write SetDataAbertura;
     property Observacao: string read FObservacao write SetObservacao;
     property SaldoInicial: Extended read FSaldoInicial write SetSaldoInicial;
+    property NomeBanco: string read FNomeBanco write SetNomeBanco;
   end;
 
 implementation
@@ -47,6 +50,12 @@ procedure TContaCorrente.SetIdBanco(AValue: string);
 begin
   if FIdBanco=AValue then Exit;
   FIdBanco:=AValue;
+end;
+
+procedure TContaCorrente.SetNomeBanco(AValue: string);
+begin
+  if FNomeBanco=AValue then Exit;
+  FNomeBanco:=AValue;
 end;
 
 procedure TContaCorrente.SetNomeConta(AValue: string);

@@ -275,7 +275,7 @@ Realiza uma exclusão pelo ID do registro
 ------------------------------------------------------------------------------}
 function TAbstractController.Delete(AId: string): boolean;
 const
-  TEMPLATE = 'DELETE FROM  %s WHERE id = :id';
+  TEMPLATE = 'DELETE FROM  %s WHERE %s.id = :id';
 var
   sql: string;
   query: TSQLQuery;
@@ -285,7 +285,7 @@ begin
   query.SQLConnection := FConnection;
   query.Transaction := FTransaction;
   try
-    sql := string.Format(TEMPLATE, [GetTableName()]);
+    sql := string.Format(TEMPLATE, [GetTableName(), GetTableName()]);
     try
       if (not FTransaction.Active) then
       begin
@@ -318,7 +318,7 @@ var
   query: TSQLQuery;
   template : string;
 begin
-  template := GetTemplateSelect + ' WHERE id = :id';
+  template := GetTemplateSelect + ' WHERE '+ GetTableName+ '.id = :id';
   sql := '';
   sValues := '';
   query := TSQLQuery.Create(nil);
@@ -414,15 +414,15 @@ Realiza uma busca com base em um filtro (DEVERÁ SER IMPLEMETADA NAS CLASSES
 CONCRETAS )
 ------------------------------------------------------------------------------}
 procedure TAbstractController.GetByFilter;
-const
-  TEMPLATE = 'SELECT cast(id as varchar) as _id, *  FROM %s %s %s';
 var
+  template: string;
   sql: string;
   sOrder: string;
   query: TSQLQuery;
   model: TModelBase;
   sFilter: string;
 begin
+  template := GetTemplateSelect + ' %s %s';
   sql := '';
   sOrder := '';
   sFilter := GetFilterExpression;
@@ -464,6 +464,7 @@ begin
       begin
         FCurrent := TModelBase(FItens.First);
         FCurrentIndex := 0;
+        NotifyOnCurrent;
       end;
 
       NotifyOnGetAll();

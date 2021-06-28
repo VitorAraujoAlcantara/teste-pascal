@@ -5,13 +5,14 @@ unit unDmDados;
 interface
 
 uses
-  Classes, SysUtils, PQConnection, postgres3dyn;
+  Classes, SysUtils, PQConnection, odbcconn, postgres3dyn;
 
 type
 
   { TDmDados }
 
   TDmDados = class(TDataModule)
+    ODBCConnection1: TODBCConnection;
     PQConnection1: TPQConnection;
     procedure DataModuleCreate(Sender: TObject);
   private
@@ -31,6 +32,7 @@ implementation
 
 procedure TDmDados.DataModuleCreate(Sender: TObject);
 begin
+     // Alterar para ambiente do cliente.
      InitialisePostgres3('/Library/PostgreSQL/10/lib/libpq.5.10.dylib');
      PQConnection1.Open;
 end;

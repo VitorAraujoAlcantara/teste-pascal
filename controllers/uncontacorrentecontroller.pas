@@ -56,6 +56,7 @@ type
     procedure SetFilterNumeroConta(AValue: string);
 
   protected
+    function GetDefaultOrder: string; override;
     function GetTemplateSelect: string; override;
     function GetTableName: string; override;
     function GetInsertFieldList: TStringList; override;
@@ -148,6 +149,10 @@ var
   pos: Integer;
 begin
   LoadList;
+  if ( not Assigned(ACurrent) ) then
+  begin
+    exit;
+  end;
   with ACurrent as TContaCorrente do
   begin
     for pos := 0 to FList.Count -1 do
@@ -254,9 +259,14 @@ begin
   FFilterNumeroConta := AValue;
 end;
 
+function TContaCorrenteController.GetDefaultOrder: string;
+begin
+  Result := FIELD_NOME_CONTA;
+end;
+
 function TContaCorrenteController.GetTemplateSelect: string;
 begin
-  Result := 'SELECT cast(id as varchar) as _id, cast(idBanco as varchar) as _idBanco,  *  FROM %s ';
+  Result := 'SELECT cast(conta_corrente.id as varchar) as _id, cast(idBanco as varchar) as _idBanco, banco.nomeBanco ,  conta_corrente.*  FROM %s INNER JOIN banco ON conta_corrente.idBanco = banco.id ';
 end;
 
 constructor TContaCorrenteController.Create(AConnection: TSQLConnection);
@@ -321,17 +331,17 @@ procedure TContaCorrenteController.SetFilterParamsValues(AQuery: TSQLQuery);
 begin
   if (FilterIdBanco <> string.Empty) then
   begin
-    AQuery.FieldByName(FIELD_ID_BANCO).AsString := FilterIdBanco;
+    AQuery.ParamByName(FIELD_ID_BANCO).AsString := FilterIdBanco;
   end;
 
   if (FilterNomeConta <> string.Empty) then
   begin
-    AQuery.FieldByName(FIELD_NOME_CONTA).AsString := FilterNomeConta;
+    AQuery.ParamByName(FIELD_NOME_CONTA).AsString := '%'+FilterNomeConta +'%';
   end;
 
   if (FilterNumeroConta <> string.Empty) then
   begin
-    AQuery.FieldByName(FIELD_NUMERO).AsString := FilterNumeroConta;
+    AQuery.ParamByName(FIELD_NUMERO).AsString := FilterNumeroConta;
   end;
 end;
 
@@ -343,18 +353,18 @@ begin
 
   if (FilterIdBanco <> string.Empty) then
   begin
-    Result := ' AND ' + FIELD_ID_BANCO + ' = :' + FIELD_ID_BANCO;
+    Result :=  Result +  ' AND conta_corrente.' + FIELD_ID_BANCO + ' = :' + FIELD_ID_BANCO;
   end;
 
   if (FilterNomeConta <> string.Empty) then
   begin
-    Result := ' AND UPPER(' + FIELD_NOME_CONTA + ') LIKE UPPER(:' +
+    Result :=  Result + ' AND UPPER(conta_corrente.' + FIELD_NOME_CONTA + ') LIKE UPPER(:' +
       FIELD_NOME_CONTA + ') ';
   end;
 
   if (FilterNumeroConta <> string.Empty) then
   begin
-    Result := ' AND ' + FIELD_NUMERO + ' = :' + FIELD_NUMERO;
+    Result := Result + ' AND conta_corrente.' + FIELD_NUMERO + ' = :' + FIELD_NUMERO;
   end;
 
 end;
@@ -375,6 +385,7 @@ begin
     DataAbertura := AQuery.FieldByName(FIELD_DATA_ABERTURA).AsDateTime;
     Observacao := AQuery.FieldByName(FIELD_OBSERVACAO).AsString;
     SaldoInicial := AQuery.FieldByName(FIELD_SALDO_INICIAL).AsFloat;
+    NomeBanco:= AQuery.FieldByName('nomeBanco').AsString;
   end;
 end;
 

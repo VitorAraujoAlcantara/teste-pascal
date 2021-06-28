@@ -48,6 +48,7 @@ type
     FFilterNomeConta: string;
     FFilterNumeroConta: string;
     FLoadBanco: TLoadBanco;
+    function GetIndiceBanco: integer;
     function GetListaBanco: TStringList;
     function GetNomeBanco: string;
     procedure SetFilterIdBanco(AValue: string);
@@ -74,6 +75,7 @@ type
       write SetFilterNumeroConta;
     property NomeBanco: string read GetNomeBanco;
     property ListaBanco: TStringList read GetListaBanco;
+    property IndiceBanco:integer read GetIndiceBanco;
     constructor Create(AConnection: TSQLConnection); override;
     destructor Destroy; override;
   end;
@@ -146,6 +148,10 @@ var
   pos: Integer;
 begin
   LoadList;
+  if ( not Assigned(ACurrent) ) then
+  begin
+    exit;
+  end;
   with ACurrent as TContaCorrente do
   begin
     for pos := 0 to FList.Count -1 do
@@ -228,6 +234,16 @@ begin
   Result := FLoadBanco.List;
 end;
 
+function TContaCorrenteController.GetIndiceBanco: integer;
+begin
+  if ( ASsigned(FLoadBanco)) then
+   begin
+     Result := FLoadBanco.IdxSelected;
+     exit;
+   end;
+   result := -1;
+end;
+
 procedure TContaCorrenteController.SetFilterNomeConta(AValue: string);
 begin
   if FFilterNomeConta = AValue then
@@ -244,7 +260,7 @@ end;
 
 function TContaCorrenteController.GetTemplateSelect: string;
 begin
-  Result := 'SELECT cast(id as varchar) as _id, cast(idBanco as varchar) as _idBanco,  *  FROM %s ';
+  Result := 'SELECT cast(conta_corrente.id as varchar) as _id, cast(idBanco as varchar) as _idBanco, banco.nomeBanco ,  conta_corrente.*  FROM %s INNER JOIN banco ON conta_corrente.idBanco = banco.id ';
 end;
 
 constructor TContaCorrenteController.Create(AConnection: TSQLConnection);
@@ -309,17 +325,17 @@ procedure TContaCorrenteController.SetFilterParamsValues(AQuery: TSQLQuery);
 begin
   if (FilterIdBanco <> string.Empty) then
   begin
-    AQuery.FieldByName(FIELD_ID_BANCO).AsString := FilterIdBanco;
+    AQuery.ParamByName(FIELD_ID_BANCO).AsString := FilterIdBanco;
   end;
 
   if (FilterNomeConta <> string.Empty) then
   begin
-    AQuery.FieldByName(FIELD_NOME_CONTA).AsString := FilterNomeConta;
+    AQuery.ParamByName(FIELD_NOME_CONTA).AsString := '%'+FilterNomeConta +'%';
   end;
 
   if (FilterNumeroConta <> string.Empty) then
   begin
-    AQuery.FieldByName(FIELD_NUMERO).AsString := FilterNumeroConta;
+    AQuery.ParamByName(FIELD_NUMERO).AsString := FilterNumeroConta;
   end;
 end;
 
@@ -331,18 +347,18 @@ begin
 
   if (FilterIdBanco <> string.Empty) then
   begin
-    Result := ' AND ' + FIELD_ID_BANCO + ' = :' + FIELD_ID_BANCO;
+    Result :=  Result +  ' AND conta_corrente.' + FIELD_ID_BANCO + ' = :' + FIELD_ID_BANCO;
   end;
 
   if (FilterNomeConta <> string.Empty) then
   begin
-    Result := ' AND UPPER(' + FIELD_NOME_CONTA + ') LIKE UPPER(:' +
+    Result :=  Result + ' AND UPPER(conta_corrente.' + FIELD_NOME_CONTA + ') LIKE UPPER(:' +
       FIELD_NOME_CONTA + ') ';
   end;
 
   if (FilterNumeroConta <> string.Empty) then
   begin
-    Result := ' AND ' + FIELD_NUMERO + ' = :' + FIELD_NUMERO;
+    Result := Result + ' AND conta_corrente.' + FIELD_NUMERO + ' = :' + FIELD_NUMERO;
   end;
 
 end;
@@ -363,6 +379,7 @@ begin
     DataAbertura := AQuery.FieldByName(FIELD_DATA_ABERTURA).AsDateTime;
     Observacao := AQuery.FieldByName(FIELD_OBSERVACAO).AsString;
     SaldoInicial := AQuery.FieldByName(FIELD_SALDO_INICIAL).AsFloat;
+    NomeBanco:= AQuery.FieldByName('nomeBanco').AsString;
   end;
 end;
 

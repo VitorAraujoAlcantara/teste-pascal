@@ -2,9 +2,9 @@ object DmDados: TDmDados
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 150
-  HorizontalOffset = 296
-  VerticalOffset = 130
-  Width = 150
+  HorizontalOffset = 361
+  VerticalOffset = 137
+  Width = 387
   object PQConnection1: TPQConnection
     Connected = False
     LoginPrompt = False
@@ -15,5 +15,12 @@ object DmDados: TDmDados
     HostName = 'localhost'
     Left = 48
     Top = 24
+  end
+  object ODBCConnection1: TODBCConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Left = 48
+    Top = 88
   end
 end

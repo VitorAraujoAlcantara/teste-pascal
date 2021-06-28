@@ -31,17 +31,17 @@ type
     BtnRefresh: TBitBtn;
     BtnClose: TBitBtn;
     BtnOk: TBitBtn;
-    BitBtn4: TBitBtn;
-    BitBtn5: TBitBtn;
-    BitBtn6: TBitBtn;
-    BitBtn7: TBitBtn;
+    BtnFirst: TBitBtn;
+    BtnPrior: TBitBtn;
+    BtnNext: TBitBtn;
+    BtnLast: TBitBtn;
     ImageList1: TImageList;
     Panel1: TPanel;
     PnlNavigator: TPanel;
-    procedure BitBtn4Click(Sender: TObject);
-    procedure BitBtn5Click(Sender: TObject);
-    procedure BitBtn6Click(Sender: TObject);
-    procedure BitBtn7Click(Sender: TObject);
+    procedure BtnFirstClick(Sender: TObject);
+    procedure BtnPriorClick(Sender: TObject);
+    procedure BtnNextClick(Sender: TObject);
+    procedure BtnLastClick(Sender: TObject);
     procedure BtnCloseClick(Sender: TObject);
     procedure BtnOkClick(Sender: TObject);
     procedure BtnRefreshClick(Sender: TObject);
@@ -51,7 +51,7 @@ type
   protected
     FController: TAbstractController;
     FOperation: CadOperation;
-    procedure UpdateScreen(AModel: TModelBase); virtual; abstract;
+    procedure UpdateScreen(AModel: TModelBase); virtual;
     function GetModelFromScreenFields: TModelBase; virtual; abstract;
     procedure SetFilterParams; virtual; abstract;
   public
@@ -121,6 +121,14 @@ begin
   end;
 end;
 
+procedure TFrmCadDetailBase.UpdateScreen(AModel: TModelBase);
+begin
+  BtnFirst.Enabled:= FController.CurrentIndex > 0 ;
+  BtnPrior.Enabled:= FController.CurrentIndex > 0;
+  BtnLast.Enabled:= FController.CurrentIndex < FController.Itens.Count -1;
+  BtnNext.Enabled:= FController.CurrentIndex < FController.Itens.Count -1;
+end;
+
 procedure TFrmCadDetailBase.BtnOkClick(Sender: TObject);
 var
   model: TModelBase;
@@ -176,22 +184,22 @@ begin
   Close();
 end;
 
-procedure TFrmCadDetailBase.BitBtn4Click(Sender: TObject);
+procedure TFrmCadDetailBase.BtnFirstClick(Sender: TObject);
 begin
   FController.First;
 end;
 
-procedure TFrmCadDetailBase.BitBtn5Click(Sender: TObject);
+procedure TFrmCadDetailBase.BtnPriorClick(Sender: TObject);
 begin
   FController.Prior;
 end;
 
-procedure TFrmCadDetailBase.BitBtn6Click(Sender: TObject);
+procedure TFrmCadDetailBase.BtnNextClick(Sender: TObject);
 begin
   FController.Next;
 end;
 
-procedure TFrmCadDetailBase.BitBtn7Click(Sender: TObject);
+procedure TFrmCadDetailBase.BtnLastClick(Sender: TObject);
 begin
   FController.Last;
 end;

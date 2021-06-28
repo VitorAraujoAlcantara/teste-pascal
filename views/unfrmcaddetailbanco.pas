@@ -59,6 +59,7 @@ end;
 
 procedure TFrmCadDetailBanco.UpdateScreen(AModel: TModelBase);
 begin
+  inherited UpdateScreen(AModel);
   EdtNome.Text := '';
   EdtCodigo.Text := '0';
   MemObs.Text:= '';

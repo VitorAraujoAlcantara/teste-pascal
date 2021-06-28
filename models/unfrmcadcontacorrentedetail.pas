@@ -80,12 +80,33 @@ begin
 end;
 
 procedure TFrmCadContaCorrenteDetail.SetFilterParams;
+var
+  contaCorrenteController: TContaCorrenteController;
 begin
+  contaCorrenteController := TContaCorrenteController(FController);
+  contaCorrenteController.FilterNomeConta:= string.Empty;
+  contaCorrenteController.FilterIdBanco:= string.Empty;
+  contaCorrenteController.FilterNumeroConta:= string.Empty;
+  if ( not SameStr(EdtNome.Text, String.Empty ) ) then
+  begin
+    contaCorrenteController.FilterNomeConta:= EdtNome.Text;
+  end;
 
+  if ( not SameStr(EdtNumero.Text, String.Empty )) then
+  begin
+    contaCorrenteController.FilterNomeConta:= EdtNumero.Text;
+  end;
+
+  if ( CmbBanco.ItemIndex > -1 ) then
+  begin
+    contaCorrenteController.FilterIdBanco:= contaCorrenteController.ListaBanco.ValueFromIndex[CmbBanco.ItemIndex];
+  end;
 end;
 
 procedure TFrmCadContaCorrenteDetail.UpdateScreen(AModel: TModelBase);
 begin
+  inherited UpdateScreen(AModel);
+
   EdtNumero.Clear;
   EdtNome.Clear;
   EdtValorAbertura.Clear;
@@ -114,6 +135,11 @@ begin
 
 
     end;
+  end;
+
+  if ( EdtNome.Enabled ) then
+  begin
+    EdtNome.SetFocus;
   end;
 
 

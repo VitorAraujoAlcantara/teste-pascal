@@ -5,7 +5,8 @@ unit UnCadContaCorrente;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, unFrmCadBase;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, unFrmCadBase,
+  unControllerBase, unFrmCadDetailBase, unModelBase;
 
 type
 
@@ -29,7 +30,7 @@ var
 
 implementation
 
-uses unContaCorrenteController, unDmDados, unContaCorrente;
+uses unContaCorrenteController, unDmDados, unContaCorrente, UnFrmCadContaCorrenteDetail;
 
 {$R *.lfm}
 
@@ -43,7 +44,7 @@ end;
 function TFrmCadContaCorrente.GetFrmDetail(AControlbler: TAbstractController;
   AOperation: CadOperation): TFrmCadDetailBase;
 begin
-
+  Result := TFrmCadContaCorrenteDetail.Create(self, AControlbler, AOperation);
 end;
 
 function TFrmCadContaCorrente.GetRowHeaders: TStringArray;

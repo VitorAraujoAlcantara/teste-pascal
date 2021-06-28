@@ -7,9 +7,11 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, unFrmPrincipal, unFrmBase, unModelBase, unBanco, unControllerBase,
-  unDmDados, unBancoController, unFrmCadBase, unCadBanco, unFrmCadDetailBase,
-  unFrmCadDetailBanco, unContaCorrenteController, unContaCorrente, UnCadContaCorrente
+  Forms, datetimectrls, runtimetypeinfocontrols, unFrmPrincipal, unFrmBase,
+  unModelBase, unBanco, unControllerBase, unDmDados, unBancoController,
+  unFrmCadBase, unCadBanco, unFrmCadDetailBase, unFrmCadDetailBanco,
+  unContaCorrenteController, unContaCorrente, UnCadContaCorrente,
+  UnFrmCadContaCorrenteDetail
   { you can add units after this };
 
 {$R *.res}

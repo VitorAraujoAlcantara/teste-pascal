@@ -7,9 +7,10 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, unFrmPrincipal, unFrmBase, unModelBase, unBanco, unControllerBase,
-  unDmDados, unBancoController, unFrmCadBase, unCadBanco, unFrmCadDetailBase,
-  unFrmCadDetailBanco, unContaCorrenteController, unContaCorrente
+  Forms, datetimectrls, unFrmPrincipal, unFrmBase, unModelBase, unBanco,
+  unControllerBase, unDmDados, unBancoController, unFrmCadBase, unCadBanco,
+  unFrmCadDetailBase, unFrmCadDetailBanco, unContaCorrenteController,
+  unContaCorrente, UnCadContaCorrente, UnFrmCadContaCorrenteDetail
   { you can add units after this };
 
 {$R *.res}
@@ -19,6 +20,7 @@ begin
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  Application.CreateForm(TFrmCadContaCorrenteDetail, FrmCadContaCorrenteDetail);
   Application.Run;
 end.
 

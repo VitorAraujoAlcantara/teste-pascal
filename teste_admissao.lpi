@@ -25,15 +25,21 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <RequiredPackages Count="2">
+    <RequiredPackages Count="4">
       <Item1>
-        <PackageName Value="FCL"/>
+        <PackageName Value="RunTimeTypeInfoControls"/>
       </Item1>
       <Item2>
-        <PackageName Value="LCL"/>
+        <PackageName Value="DateTimeCtrls"/>
       </Item2>
+      <Item3>
+        <PackageName Value="FCL"/>
+      </Item3>
+      <Item4>
+        <PackageName Value="LCL"/>
+      </Item4>
     </RequiredPackages>
-    <Units Count="15">
+    <Units Count="16">
       <Unit0>
         <Filename Value="teste_admissao.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -132,6 +138,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UnCadContaCorrente"/>
       </Unit14>
+      <Unit15>
+        <Filename Value="models/unfrmcadcontacorrentedetail.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmCadContaCorrenteDetail"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UnFrmCadContaCorrenteDetail"/>
+      </Unit15>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

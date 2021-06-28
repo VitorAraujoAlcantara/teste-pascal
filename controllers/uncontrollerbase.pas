@@ -50,7 +50,9 @@ type
   protected
     FQuery: TSQLQuery;
     FTransaction: TSQLTransaction;
+    function GetTemplateSelect:string;virtual;
     function GetTableName: string; virtual; abstract;
+
     function GetInsertFieldList: TStringList; virtual; abstract;
     procedure SetInsertFieldValues(AModel: TModelBase; AQuery: TSQLQuery);
       virtual; abstract;
@@ -108,6 +110,10 @@ begin
   Result := guid;
 end;
 
+{------------------------------------------------------------------------------
+Executa a validação utilizando a implementação GetValidator fornecida na classe
+concreta.
+------------------------------------------------------------------------------}
 function TAbstractController.ValidateModel(AModel: TModelBase): Boolean;
 var
   isValid: boolean;
@@ -116,11 +122,29 @@ begin
   result := isValid;
 end;
 
+{------------------------------------------------------------------------------
+Retorna o comando SQL padrão para trazer registros.
+Será utilizado nos métodos GetAll, GetByFilter e Get.
+------------------------------------------------------------------------------}
+function TAbstractController.GetTemplateSelect: string;
+begin
+   Result := 'SELECT cast(id as varchar) as _id,  *  FROM %s ';
+end;
+
+{------------------------------------------------------------------------------
+Retorna a ordem atual para ser implemetnado nos métodos GetAll e GetByFilter.
+Deverá ser implementado nas classes concretas.
+NÃO DEVERÁ SER PREENCHIDO A SINTAXE 'ORDER BY'
+Ex.: nome ASC, dataCadastro DESC
+------------------------------------------------------------------------------}
 function TAbstractController.GetDefaultOrder: string;
 begin
   Result := '';
 end;
 
+{------------------------------------------------------------------------------
+Passa os valores comuns de TModelBase
+------------------------------------------------------------------------------}
 procedure TAbstractController.SetCommonsValues(AQuery: TSQLQuery;
   AModel: TModelBase);
 begin
@@ -128,6 +152,9 @@ begin
   AModel.DataAlteracao:= AQuery.FieldByName('DataAlteracao').AsDateTime;
 end;
 
+{------------------------------------------------------------------------------
+Insere um novo registro
+------------------------------------------------------------------------------}
 function TAbstractController.Insert(AModel: TModelBase): TModelBase;
 const
   TEMPLATE = 'INSERT INTO %s ( %s ) VALUES ( %s )';
@@ -188,6 +215,9 @@ begin
   end;
 end;
 
+{------------------------------------------------------------------------------
+Atualiza um registro
+------------------------------------------------------------------------------}
 function TAbstractController.Update(AModel: TModelBase): TModelBase;
 const
   TEMPLATE = 'UPDATE %s SET DataAlteracao = :DataAlteracao %s  WHERE id = :id';
@@ -240,6 +270,9 @@ begin
   end;
 end;
 
+{------------------------------------------------------------------------------
+Realiza uma exclusão pelo ID do registro
+------------------------------------------------------------------------------}
 function TAbstractController.Delete(AId: string): boolean;
 const
   TEMPLATE = 'DELETE FROM  %s WHERE id = :id';
@@ -275,14 +308,17 @@ begin
   end;
 end;
 
+{------------------------------------------------------------------------------
+Realiza uma consulta trazendo apenas um registro pelo seu ID
+------------------------------------------------------------------------------}
 function TAbstractController.Get(AId: string): TModelBase;
-const
-  TEMPLATE = 'SELECT *  FROM %s WHERE id = :id';
 var
   sql: string;
   sValues: string;
   query: TSQLQuery;
+  template : string;
 begin
+  template := GetTemplateSelect + ' WHERE id = :id';
   sql := '';
   sValues := '';
   query := TSQLQuery.Create(nil);
@@ -308,15 +344,18 @@ begin
   end;
 end;
 
+{------------------------------------------------------------------------------
+Realiza uma consulta trazendo todo os registros sem filtro algum
+------------------------------------------------------------------------------}
 procedure TAbstractController.GetAll;
-const
-  TEMPLATE = 'SELECT cast(id as varchar) as _id, *  FROM %s %s';
 var
+  template: string;
   sql: string;
   sOrder: string;
   query: TSQLQuery;
   model: TModelBase;
 begin
+  template := GetTemplateSelect + ' %s ';
   sql := '';
   sOrder := '';
   query := TSQLQuery.Create(nil);
@@ -370,6 +409,10 @@ begin
   end;
 end;
 
+{------------------------------------------------------------------------------
+Realiza uma busca com base em um filtro (DEVERÁ SER IMPLEMETADA NAS CLASSES
+CONCRETAS )
+------------------------------------------------------------------------------}
 procedure TAbstractController.GetByFilter;
 const
   TEMPLATE = 'SELECT cast(id as varchar) as _id, *  FROM %s %s %s';
@@ -434,7 +477,9 @@ begin
     query := nil;
   end;
 end;
-
+{------------------------------------------------------------------------------
+Navega para o próximo registro
+------------------------------------------------------------------------------}
 procedure TAbstractController.Next;
 begin
   try
@@ -463,7 +508,9 @@ begin
   end;
 
 end;
-
+{------------------------------------------------------------------------------
+Navega para o registro anterior
+------------------------------------------------------------------------------}
 procedure TAbstractController.Prior;
 begin
   try
@@ -492,6 +539,9 @@ begin
   end;
 end;
 
+{------------------------------------------------------------------------------
+Navega para o último registro
+------------------------------------------------------------------------------}
 procedure TAbstractController.Last;
 begin
   try
@@ -516,6 +566,9 @@ begin
   end;
 end;
 
+{------------------------------------------------------------------------------
+Navega para o primeiro registro
+------------------------------------------------------------------------------}
 procedure TAbstractController.First;
 begin
   try
@@ -540,6 +593,9 @@ begin
   end;
 end;
 
+{------------------------------------------------------------------------------
+Navega para o registro na posição AIndex (0 é o indice inicial)
+------------------------------------------------------------------------------}
 procedure TAbstractController.SetPos(AIndex: integer);
 begin
   try
@@ -570,6 +626,9 @@ begin
   end;
 end;
 
+{------------------------------------------------------------------------------
+Adiciona observadores para quando chamar o método GetAll
+------------------------------------------------------------------------------}
 function TAbstractController.AtachObserverOnGetAll(AItem: IObserverList): Pointer;
 var
   index: integer;
@@ -583,12 +642,18 @@ begin
   Result := FObserverUpdateList.Items[index];
 end;
 
+{------------------------------------------------------------------------------
+Remove observadores para o método GetAll
+------------------------------------------------------------------------------}
 procedure TAbstractController.UnAtachObserverOnGetAll(APointer: Pointer);
 begin
   if (FObserverUpdateList.IndexOf(APointer) > -1) then
     FObserverUpdateList.Delete(FObserverUpdateList.IndexOf(APointer));
 end;
 
+{------------------------------------------------------------------------------
+Notifica todo os observadores do método GetAll
+------------------------------------------------------------------------------}
 procedure TAbstractController.NotifyOnGetAll;
 var
   i: integer;
@@ -599,6 +664,9 @@ begin
   end;
 end;
 
+{------------------------------------------------------------------------------
+Adiciona observadores para quando navegar para o item atual
+------------------------------------------------------------------------------}
 function TAbstractController.AtachObserverCurrent(AItem: IObserverCurrent): Pointer;
 var
   index: integer;
@@ -612,12 +680,18 @@ begin
   Result := FObserverCurrent.Items[index];
 end;
 
+{------------------------------------------------------------------------------
+Remove observadores para quando navegar para o item atual
+------------------------------------------------------------------------------}
 procedure TAbstractController.UnAtachObserverCurrent(APointer: Pointer);
 begin
   if (FObserverCurrent.IndexOf(APointer) > -1) then
     FObserverCurrent.Delete(FObserverCurrent.IndexOf(APointer));
 end;
 
+{------------------------------------------------------------------------------
+Notifica os observadores para quando navegar para o item atual
+------------------------------------------------------------------------------}
 procedure TAbstractController.NotifyOnCurrent;
 var
   i: integer;

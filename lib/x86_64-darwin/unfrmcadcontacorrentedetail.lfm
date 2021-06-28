@@ -1,0 +1,137 @@
+inherited FrmCadContaCorrenteDetail: TFrmCadContaCorrenteDetail
+  Caption = 'Cadastro de conta corrente'
+  OnShow = FormShow
+  object Label1: TLabel[1]
+    Left = 24
+    Height = 16
+    Top = 15
+    Width = 36
+    Caption = 'Nome'
+    ParentColor = False
+  end
+  object EdtNome: TEdit[2]
+    Left = 24
+    Height = 22
+    Top = 32
+    Width = 272
+    TabOrder = 1
+    Text = 'EdtNome'
+  end
+  object Label2: TLabel[3]
+    Left = 304
+    Height = 16
+    Top = 15
+    Width = 48
+    Caption = 'Número'
+    ParentColor = False
+  end
+  object EdtNumero: TEdit[4]
+    Left = 304
+    Height = 22
+    Top = 32
+    Width = 200
+    TabOrder = 2
+    Text = 'EdtNumero'
+  end
+  object Label3: TLabel[5]
+    Left = 24
+    Height = 16
+    Top = 64
+    Width = 102
+    Caption = 'Data de abertura'
+    ParentColor = False
+  end
+  object EdtDataAbertura: TDateTimePicker[6]
+    Left = 24
+    Height = 22
+    Top = 80
+    Width = 95
+    CenturyFrom = 1941
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 3
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 44374
+    Time = 0.927551388886059
+    UseDefaultSeparators = True
+    HideDateTimeParts = []
+    MonthNames = 'Long'
+  end
+  object Label4: TLabel[7]
+    Left = 208
+    Height = 16
+    Top = 64
+    Width = 86
+    Caption = 'Valor abertura'
+    ParentColor = False
+  end
+  object Label5: TLabel[8]
+    Left = 24
+    Height = 16
+    Top = 112
+    Width = 73
+    Caption = 'Observação'
+    ParentColor = False
+  end
+  object MemObservacao: TMemo[9]
+    Left = 24
+    Height = 56
+    Top = 128
+    Width = 480
+    Lines.Strings = (
+      'MemObservacao'
+    )
+    TabOrder = 4
+  end
+  object LblDataCadastro: TLabel[10]
+    Left = 38
+    Height = 16
+    Top = 205
+    Width = 3
+    Caption = '|'
+    ParentColor = False
+  end
+  object LblDataAlteracao: TLabel[11]
+    Left = 384
+    Height = 16
+    Top = 205
+    Width = 3
+    Caption = '|'
+    ParentColor = False
+  end
+  object Label6: TLabel[12]
+    Left = 304
+    Height = 16
+    Top = 64
+    Width = 38
+    Caption = 'Banco'
+    ParentColor = False
+  end
+  object CmbBanco: TComboBox[13]
+    Left = 304
+    Height = 20
+    Top = 80
+    Width = 200
+    ItemHeight = 26
+    Style = csDropDownList
+    TabOrder = 5
+    Text = 'CmbBanco'
+  end
+  object EdtValorAbertura: TTIFloatSpinEdit[14]
+    Left = 208
+    Height = 22
+    Top = 78
+    Width = 96
+    Increment = 0.01
+    MaxValue = 999999
+    TabOrder = 6
+  end
+  inherited ImageList1: TImageList[15]
+  end
+end

@@ -43,10 +43,12 @@ type
 
   TContaCorrenteController = class(TAbstractController)
   private
+    FPointerCurrent: Pointer;
     FFilterIdBanco: string;
     FFilterNomeConta: string;
     FFilterNumeroConta: string;
     FLoadBanco: TLoadBanco;
+    function GetIndiceBanco: integer;
     function GetListaBanco: TStringList;
     function GetNomeBanco: string;
     procedure SetFilterIdBanco(AValue: string);
@@ -54,6 +56,7 @@ type
     procedure SetFilterNumeroConta(AValue: string);
 
   protected
+    function GetTemplateSelect: string; override;
     function GetTableName: string; override;
     function GetInsertFieldList: TStringList; override;
     procedure SetInsertFieldValues(AModel: TModelBase; AQuery: TSQLQuery);
@@ -72,7 +75,9 @@ type
       write SetFilterNumeroConta;
     property NomeBanco: string read GetNomeBanco;
     property ListaBanco: TStringList read GetListaBanco;
+    property IndiceBanco:integer read GetIndiceBanco;
     constructor Create(AConnection: TSQLConnection); override;
+    destructor Destroy; override;
   end;
 
 implementation
@@ -80,7 +85,7 @@ implementation
 uses unContaCorrente;
 
 const
-  FIELD_ID_BANCO = 'idBAnco';
+  FIELD_ID_BANCO = 'idBanco';
   FIELD_NOME_CONTA = 'nomeConta';
   FIELD_NUMERO = 'numero';
   FIELD_DATA_ABERTURA = 'dataAbertura';
@@ -123,14 +128,13 @@ begin
   query := TSQLQuery.Create(nil);
   try
     query.SQLConnection := FConnection;
-    query.SQL.Text := 'SELECT * FROM banco ORDER BY nomeBanco';
+    query.SQL.Text := 'SELECT CAST ( id as VARCHAR) as _id, nomeBanco FROM banco ORDER BY nomeBanco';
     query.Open;
     query.First;
 
     while not query.EOF do
     begin
-      FList.AddObject(query.FieldByName('nomeBanco').AsString,
-        TObject(query.FieldByName('id').AsString));
+      FList.AddPair(query.FieldByName('nomeBanco').AsString, query.FieldByName('_id').AsString );
       query.Next;
     end;
 
@@ -146,9 +150,9 @@ begin
   LoadList;
   with ACurrent as TContaCorrente do
   begin
-    for pos := 0 to FList.Count do
+    for pos := 0 to FList.Count -1 do
     begin
-      if ( String(FList.Objects[pos]) = IdBanco ) then
+      if ( FList.ValueFromIndex[pos] = IdBanco ) then
       begin
         Current:= FList[pos];
         IdxSelected:= pos;
@@ -167,7 +171,7 @@ constructor TLoadBanco.Create(AConnection: TSqlConnection);
 begin
   inherited Create;
   FConnection := AConnection;
-
+  LoadList;
 end;
 
 { TContaCorrenteValidator }
@@ -213,12 +217,27 @@ end;
 
 function TContaCorrenteController.GetNomeBanco: string;
 begin
-  Result := FLoadBanco.Current;
+  if ( ASsigned(FLoadBanco)) then
+  begin
+    Result := FLoadBanco.Current;
+    exit;
+  end;
+  result := string.Empty;
 end;
 
 function TContaCorrenteController.GetListaBanco: TStringList;
 begin
   Result := FLoadBanco.List;
+end;
+
+function TContaCorrenteController.GetIndiceBanco: integer;
+begin
+  if ( ASsigned(FLoadBanco)) then
+   begin
+     Result := FLoadBanco.IdxSelected;
+     exit;
+   end;
+   result := -1;
 end;
 
 procedure TContaCorrenteController.SetFilterNomeConta(AValue: string);
@@ -235,10 +254,22 @@ begin
   FFilterNumeroConta := AValue;
 end;
 
+function TContaCorrenteController.GetTemplateSelect: string;
+begin
+  Result := 'SELECT cast(id as varchar) as _id, cast(idBanco as varchar) as _idBanco,  *  FROM %s ';
+end;
+
 constructor TContaCorrenteController.Create(AConnection: TSQLConnection);
 begin
   inherited Create(AConnection);
   FLoadBanco := TLoadBanco.Create(AConnection);
+  FPointerCurrent :=  AtachObserverCurrent(FLoadBanco);
+end;
+
+destructor TContaCorrenteController.Destroy;
+begin
+  UnAtachObserverCurrent(FPointerCurrent);
+  inherited Destroy;
 end;
 
 function TContaCorrenteController.GetTableName: string;
@@ -338,7 +369,7 @@ begin
   Result := TContaCorrente.Create;
   with Result as TContaCorrente do
   begin
-    IdBanco := AQuery.FieldByName(FIELD_ID_BANCO).AsString;
+    IdBanco := AQuery.FieldByName('_idBanco').AsString;
     NomeConta := AQuery.FieldByName(FIELD_NOME_CONTA).AsString;
     Numero := AQuery.FieldByName(FIELD_NUMERO).AsString;
     DataAbertura := AQuery.FieldByName(FIELD_DATA_ABERTURA).AsDateTime;

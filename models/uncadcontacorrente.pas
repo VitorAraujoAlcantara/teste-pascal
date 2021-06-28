@@ -17,7 +17,7 @@ type
 
   protected
     function GetController: TAbstractController; override;
-    function GetFrmDetail(AControlbler: TAbstractController;
+    function GetFrmDetail(AController: TAbstractController;
       AOperation: CadOperation): TFrmCadDetailBase; override;
     function GetRowHeaders: TStringArray; override;
     function GetRowItens(AItem: TModelBase): TStringArray; override;
@@ -30,7 +30,7 @@ var
 
 implementation
 
-uses unContaCorrenteController, unDmDados, unContaCorrente;
+uses unContaCorrenteController, unDmDados, unContaCorrente, UnFrmCadContaCorrenteDetail;
 
 {$R *.lfm}
 
@@ -41,10 +41,10 @@ begin
   Result := TContaCorrenteController.Create(DmDados.PQConnection1);
 end;
 
-function TFrmCadContaCorrente.GetFrmDetail(AControlbler: TAbstractController;
+function TFrmCadContaCorrente.GetFrmDetail(AController: TAbstractController;
   AOperation: CadOperation): TFrmCadDetailBase;
 begin
-
+  Result := TFrmCadContaCorrenteDetail.Create(self, AController, AOperation);
 end;
 
 function TFrmCadContaCorrente.GetRowHeaders: TStringArray;
